@@ -4,6 +4,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Set up npm
+        run:
+          sudo apt update
+          sudo apt install -y make
       - name: setup
         run: make setup
       - name: test
